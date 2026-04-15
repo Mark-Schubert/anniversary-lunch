@@ -802,7 +802,7 @@
       <h1 class="hero-title">Happy Anniversary<br>Mark & Kristie 💕</h1>
       <p class="hero-sub">13 wonderful years — 19th April 2013</p>
       <p class="hero-date">Where shall we lunch, my love?</p>
-      <p class="hero-scroll" onclick="showSection('restaurants', document.querySelector('.nav-item:nth-child(5)'))" style="cursor:pointer;">✨ Check out your restaurants ✨</p>
+      <p class="hero-scroll" onclick="showSection('restaurants', document.querySelector('.nav-item:nth-child(6)'))" style="cursor:pointer;">✨ Check out your restaurants ✨</p>
     </div>
   </div>
 
@@ -971,11 +971,10 @@ let spinWinner = null;
 
 // ── NAV
 function showSection(id, el) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s => { s.classList.remove('active'); s.style.display = ''; });
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   const sec = document.getElementById(id);
   sec.classList.add('active');
-  sec.style.display = id === 'hero-wrap' ? 'block' : 'block';
   if (el) el.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
   return false;
@@ -1273,7 +1272,7 @@ function selectFromSpin() {
   if (!spinWinner) return;
   const idx = RESTAURANTS.indexOf(spinWinner);
   selectRestaurant(idx);
-  showSection('restaurants', document.querySelector('.nav-item:nth-child(5)'));
+  showSection('restaurants', document.querySelector('.nav-item:nth-child(6)'));
 }
 </script>
 </body>
